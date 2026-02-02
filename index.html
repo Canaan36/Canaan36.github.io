@@ -221,15 +221,15 @@
             margin-top: 2rem;
         }
         
-        /* --- Project section Layout Redesign (Vertical Stack) --- */
+        /* --- Project section Layout (Left Image, Right Text) --- */
         .project-container {
             margin-top: 2rem;
         }
         
         .project-card {
             display: flex;
-            /* 关键修改：改为垂直布局，让图片可以撑满宽度 */
-            flex-direction: column; 
+            /* 恢复默认的水平布局 */
+            flex-direction: row; 
             margin-bottom: 3.5rem;
             border-radius: 16px; 
             overflow: hidden;
@@ -237,6 +237,8 @@
             background-color: white;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(0,0,0,0.05); 
+            /* 确保在卡片高度较高时，图片容器能撑满高度 */
+            align-items: stretch;
         }
         
         .project-card:hover {
@@ -245,45 +247,44 @@
         }
         
         .project-img-container {
-            width: 100%;
-            /* 不限制固定高度，根据内容自适应，但设置最大高度防止过长 */
-            height: auto;
-            max-height: 500px; 
+            /* 左侧占比，稍微宽一点以容纳padding */
+            flex: 0 0 42%; 
             position: relative;
             overflow: hidden;
-            background-color: #edf2f7; /* 浅灰底色，衬托白色背景的图片 */
-            padding: 2rem; /* 给图片留出呼吸空间，像画框一样 */
+            background-color: #edf2f7; /* 保留优化：浅灰背景 */
+            padding: 1.5rem; /* 保留优化：画框感内边距 */
             display: flex;
             justify-content: center;
-            align-items: center;
-            cursor: zoom-in; /* 提示可点击放大 */
+            align-items: center; /* 垂直居中 */
+            cursor: zoom-in; /* 保留优化：点击放大提示 */
         }
         
         .project-img {
-            max-width: 100%;
-            max-height: 450px; /* 限制图片最大高度 */
-            width: auto;
-            height: auto;
-            /* 保证完整显示 */
+            width: 100%;
+            height: 100%;
+            /* 保证完整显示，不裁剪 */
             object-fit: contain; 
             transition: transform 0.3s ease;
-            /* 给图片本身加个小阴影，让它从背景中浮现出来 */
+            /* 保留优化：图片自身阴影 */
             box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
             border-radius: 4px;
             background-color: white; /* 确保透明PNG有白底 */
         }
         
-        /* 悬停时图片轻微上浮，而不是放大裁剪 */
         .project-card:hover .project-img {
-            transform: scale(1.02);
+            transform: scale(1.03); /* 悬停微放大 */
         }
         
         .project-content {
-            padding: 2.5rem; /* 增加文字区域的内边距 */
+            flex: 1;
+            padding: 2.5rem; /* 舒适的文字间距 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 让文字内容垂直居中（如果内容较少） */
         }
         
         .project-title {
-            font-size: 1.5rem; /* 标题加大 */
+            font-size: 1.4rem; 
             font-weight: 700;
             margin-bottom: 1rem;
             color: #1a202c;
@@ -293,8 +294,8 @@
         .project-description {
             margin-bottom: 1.5rem;
             color: var(--text-color);
-            font-size: 1.05rem;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 1.7;
         }
         
         /* Lightbox (Image Viewer) Styles */
@@ -610,9 +611,9 @@
             
             .social-links { justify-content: center; }
             
+            /* Mobile adjustment: stack columns */
             .project-card { flex-direction: column; }
-            /* Mobile adjustment for images */
-            .project-img-container { padding: 1rem; max-height: 350px; }
+            .project-img-container { width: 100%; flex: 0 0 auto; height: 250px; }
             
             .timeline::before { left: 0.5rem; }
             .timeline-item { padding-left: 1.8rem; }
