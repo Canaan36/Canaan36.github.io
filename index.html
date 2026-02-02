@@ -104,25 +104,19 @@
             padding: 0 2rem;
         }
 
-        /* --- HERO 区域大改版 --- */
+        /* --- HERO 区域 --- */
         .hero {
             padding: 5rem 0;
             margin-bottom: 2rem;
             position: relative;
-            /* 方案A：使用酷炫的科技蓝渐变背景 */
             background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            
-            /* 方案B：如果你想插入背景图，请解开下面这两行的注释，并替换 url */
-            /* background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('YOUR_BACKGROUND_IMAGE_URL.jpg'); */
-            /* background-size: cover; background-position: center; */
-            
-            color: white; /* 文字变白 */
+            color: white; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         .hero-container {
             display: flex;
-            align-items: center; /* 垂直居中 */
+            align-items: center; 
             gap: 50px;
         }
         
@@ -130,7 +124,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex-shrink: 0; /* 防止头像被挤压 */
+            flex-shrink: 0; 
         }
         
         .hero-image {
@@ -139,7 +133,6 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1.5rem;
-            /* 头像增加白色边框和光晕，突出主体 */
             border: 4px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
@@ -147,7 +140,7 @@
         .hero-name {
             font-size: 2.2rem;
             font-weight: 800;
-            color: white; /* 名字变白 */
+            color: white; 
             margin-top: 0.5rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
@@ -159,13 +152,13 @@
         .hero-text {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9); /* 文字微透，更有质感 */
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 1.5rem;
             font-weight: 300;
         }
         
         .hero-text a {
-            color: #63b3ed; /* 链接改为亮蓝色，在深底上更清晰 */
+            color: #63b3ed;
             font-weight: 500;
         }
         
@@ -194,13 +187,10 @@
         /* Clean section styling */
         section {
             padding: var(--section-padding);
-            margin-bottom: 0; /* 去掉多余边距 */
+            margin-bottom: 0; 
             display: block;
             width: 100%;
         }
-        
-        /* 偶数区块加一点背景色，增加层次感（可选，目前保持白色简洁） */
-        /* section:nth-child(even) { background-color: #fff; } */
         
         h2 {
             font-size: 2rem;
@@ -218,7 +208,7 @@
             bottom: -8px;
             width: 50px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color)); /* 渐变下划线 */
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color)); 
             border-radius: 2px;
         }
         
@@ -231,20 +221,22 @@
             margin-top: 2rem;
         }
         
-        /* Project section */
+        /* --- Project section Layout Redesign (Vertical Stack) --- */
         .project-container {
             margin-top: 2rem;
         }
         
         .project-card {
             display: flex;
-            margin-bottom: 3rem;
-            border-radius: 12px; /* 更圆润 */
+            /* 关键修改：改为垂直布局，让图片可以撑满宽度 */
+            flex-direction: column; 
+            margin-bottom: 3.5rem;
+            border-radius: 16px; 
             overflow: hidden;
             box-shadow: var(--card-shadow);
             background-color: white;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05); /* 极细边框 */
+            border: 1px solid rgba(0,0,0,0.05); 
         }
         
         .project-card:hover {
@@ -253,36 +245,45 @@
         }
         
         .project-img-container {
-            flex: 0 0 38%;
+            width: 100%;
+            /* 不限制固定高度，根据内容自适应，但设置最大高度防止过长 */
+            height: auto;
+            max-height: 500px; 
             position: relative;
             overflow: hidden;
-            /* 居中显示图片背景 */
+            background-color: #edf2f7; /* 浅灰底色，衬托白色背景的图片 */
+            padding: 2rem; /* 给图片留出呼吸空间，像画框一样 */
             display: flex;
-            align-items: center;
             justify-content: center;
-            background-color: #f8f9fa; /* 给图片容器加个淡灰底色，如果图片有透明部分或者留白会更自然 */
+            align-items: center;
+            cursor: zoom-in; /* 提示可点击放大 */
         }
         
         .project-img {
-            width: 100%;
-            height: 100%;
-            /* 修改重点：使用 contain 确保图片不被裁剪，完全显示 */
+            max-width: 100%;
+            max-height: 450px; /* 限制图片最大高度 */
+            width: auto;
+            height: auto;
+            /* 保证完整显示 */
             object-fit: contain; 
-            transition: transform 0.5s ease;
+            transition: transform 0.3s ease;
+            /* 给图片本身加个小阴影，让它从背景中浮现出来 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+            border-radius: 4px;
+            background-color: white; /* 确保透明PNG有白底 */
         }
         
-        /* 图片悬停放大效果 */
+        /* 悬停时图片轻微上浮，而不是放大裁剪 */
         .project-card:hover .project-img {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
         
         .project-content {
-            flex: 1;
-            padding: 2rem;
+            padding: 2.5rem; /* 增加文字区域的内边距 */
         }
         
         .project-title {
-            font-size: 1.35rem;
+            font-size: 1.5rem; /* 标题加大 */
             font-weight: 700;
             margin-bottom: 1rem;
             color: #1a202c;
@@ -292,10 +293,61 @@
         .project-description {
             margin-bottom: 1.5rem;
             color: var(--text-color);
-            font-size: 1rem;
-            line-height: 1.7;
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
         
+        /* Lightbox (Image Viewer) Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 1200px;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+            animation-name: zoom;
+            animation-duration: 0.3s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-lightbox:hover,
+        .close-lightbox:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         /* Timeline style */
         .timeline {
             position: relative;
@@ -324,7 +376,7 @@
             content: '';
             position: absolute;
             top: 0.4rem;
-            left: -0.4rem; /* 调整圆点位置居中于线 */
+            left: -0.4rem; 
             width: 1rem;
             height: 1rem;
             border-radius: 50%;
@@ -559,7 +611,8 @@
             .social-links { justify-content: center; }
             
             .project-card { flex-direction: column; }
-            .project-img-container { height: 220px; }
+            /* Mobile adjustment for images */
+            .project-img-container { padding: 1rem; max-height: 350px; }
             
             .timeline::before { left: 0.5rem; }
             .timeline-item { padding-left: 1.8rem; }
@@ -656,8 +709,9 @@
                 <div class="project-container">
                     <!-- 项目 1 -->
                     <div class="project-card">
+                        <!-- 添加点击放大功能 onclick="openLightbox(this)" -->
                         <div class="project-img-container">
-                            <img src="chronic_stress.png" alt="Chronic Stress Estimation" class="project-img">
+                            <img src="chronic_stress.png" alt="Chronic Stress Estimation" class="project-img" onclick="openLightbox(this)">
                         </div>
                         <div class="project-content">
                             <div class="project-title" lang="en">Multimodal Chronic Stress Estimation Based on Behavioral Metrics and Physiological Signals</div>
@@ -679,7 +733,7 @@
                     <!-- 项目 2 -->
                     <div class="project-card">
                         <div class="project-img-container">
-                            <img src="3PP_VR.png" alt="3PP VR SoBO Reallocation" class="project-img">
+                            <img src="3PP_VR.png" alt="3PP VR SoBO Reallocation" class="project-img" onclick="openLightbox(this)">
                         </div>
                         <div class="project-content">
                             <div class="project-title" lang="en">Reallocation of the Sense of Body Ownership and Adaptive Feedback Design in Third-person Perspective VR</div>
@@ -701,7 +755,7 @@
                     <!-- 项目 3 -->
                     <div class="project-card">
                         <div class="project-img-container">
-                            <img src="hack.png" alt="Smartphone Teacher AI" class="project-img">
+                            <img src="hack.png" alt="Smartphone Teacher AI" class="project-img" onclick="openLightbox(this)">
                         </div>
                         <div class="project-content">
                             <div class="project-title" lang="en">Generative AI-Based Audio-Visual Smartphone Teacher for Older Adults</div>
@@ -722,6 +776,12 @@
                 </div>
             </div>
         </section>
+
+        <!-- Lightbox container -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="close-lightbox">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
 
         <section id="education">
             <div class="container">
@@ -930,7 +990,7 @@
                         <h3 lang="ja">信号処理</h3>
                         <h3 lang="zh">信号处理</h3>
                         <ul class="skill-list">
-                            <li><i class="fas fa-wave-square"></i> <span lang="en">Time-series Analysis</span><span lang="ja">時系列分析</span><span lang="zh">時間系列分析</span></li>
+                            <li><i class="fas fa-wave-square"></i> <span lang="en">Time-series Analysis</span><span lang="ja">時系列分析</span><span lang="zh">时间序列分析</span></li>
                             <li><i class="fas fa-heartbeat"></i> <span lang="en">Real-time biosignal data acquisition (e.g., Biosignalsplux)</span><span lang="ja">リアルタイム生体信号計測 (例: Biosignalsplux)</span><span lang="zh">实时生物信号采集 (如: Biosignalsplux)</span></li>
                         </ul>
                     </div>
@@ -1002,6 +1062,25 @@
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
+        });
+
+        // Lightbox functionality
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = 'block';
+            lightboxImg.src = img.src;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        
+        // Close lightbox on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
         });
     </script>
 </body>
