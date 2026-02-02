@@ -256,12 +256,18 @@
             flex: 0 0 38%;
             position: relative;
             overflow: hidden;
+            /* 居中显示图片背景 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa; /* 给图片容器加个淡灰底色，如果图片有透明部分或者留白会更自然 */
         }
         
         .project-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            /* 修改重点：使用 contain 确保图片不被裁剪，完全显示 */
+            object-fit: contain; 
             transition: transform 0.5s ease;
         }
         
@@ -691,6 +697,28 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- 项目 3 -->
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="hack.png" alt="Smartphone Teacher AI" class="project-img">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title" lang="en">Generative AI-Based Audio-Visual Smartphone Teacher for Older Adults</div>
+                            <div class="project-title" lang="ja">生成AIを用いた高齢者向け視聴覚スマートフォン操作支援システム</div>
+                            <div class="project-title" lang="zh">基于生成式AI的老年人视听智能手机教学助手</div>
+
+                            <div class="project-description" lang="en">
+                                This project proposes an AI-powered “smartphone teacher” app that understands users’ requests and on-screen content, then provides step-by-step guidance through voice instructions and visual indicators. Unlike conventional voice assistants that mainly execute commands, our approach focuses on teaching users how to operate their phones, improving confidence and reducing anxiety during daily smartphone use.
+                            </div>
+                            <div class="project-description" lang="ja">
+                                本プロジェクトでは、ユーザーの要求と画面内容を理解し、音声指示と視覚的インジケータを通じて段階的なガイダンスを提供する、AI搭載の「スマートフォン教師」アプリを提案します。主にコマンドを実行する従来の音声アシスタントとは異なり、本アプローチはユーザーにスマートフォンの操作方法を教えることに焦点を当てており、日常使用における自信の向上と不安の軽減を目指しています。
+                            </div>
+                            <div class="project-description" lang="zh">
+                                本项目提出了一款基于AI的“智能手机教师”应用，能够理解用户的请求及屏幕内容，并通过语音指令和视觉指示提供逐步指导。与主要执行命令的传统语音助手不同，我们的方法专注于教用户如何操作手机，从而提升他们在日常使用中的自信心并减少焦虑。
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -902,7 +930,7 @@
                         <h3 lang="ja">信号処理</h3>
                         <h3 lang="zh">信号处理</h3>
                         <ul class="skill-list">
-                            <li><i class="fas fa-wave-square"></i> <span lang="en">Time-series Analysis</span><span lang="ja">時系列分析</span><span lang="zh">时间序列分析</span></li>
+                            <li><i class="fas fa-wave-square"></i> <span lang="en">Time-series Analysis</span><span lang="ja">時系列分析</span><span lang="zh">時間系列分析</span></li>
                             <li><i class="fas fa-heartbeat"></i> <span lang="en">Real-time biosignal data acquisition (e.g., Biosignalsplux)</span><span lang="ja">リアルタイム生体信号計測 (例: Biosignalsplux)</span><span lang="zh">实时生物信号采集 (如: Biosignalsplux)</span></li>
                         </ul>
                     </div>
