@@ -6,14 +6,16 @@
     <title>Jiayi Hu 胡 佳儀</title>
     <style>
         :root {
-            --primary-color: #1a73e8; 
-            --secondary-color: #f8f9fa;
-            --text-color: #202124;
-            --light-text: #5f6368;
-            --border-color: #dadce0;
-            --accent-color: #1967d2;
-            --section-padding: 2.5rem 0;
-            --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            /* 配色升级：更深邃的学术蓝 */
+            --primary-color: #1565c0; /* 沉稳的蓝色 */
+            --secondary-color: #f5f7fa; /* 极淡的灰蓝色背景 */
+            --text-color: #2d3748; /* 深灰，比纯黑更柔和 */
+            --light-text: #718096;
+            --border-color: #e2e8f0;
+            --accent-color: #4299e1; /* 亮蓝，用于高亮 */
+            --section-padding: 3rem 0; /* 增加留白 */
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
         * {
@@ -23,16 +25,18 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif; /* 字体优化 */
+            line-height: 1.7;
             color: var(--text-color);
-            background-color: #ffffff;
+            background-color: var(--secondary-color); /* 整体背景微灰，不刺眼 */
             display: flex;
             flex-direction: column;
         }
+
         header {
-            background-color: white;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95); /* 轻微半透明 */
+            backdrop-filter: blur(10px); /* 磨砂玻璃效果 */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -43,16 +47,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
         
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-color);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a202c;
             text-decoration: none;
+            letter-spacing: -0.5px;
         }
         
         .nav-links {
@@ -61,19 +66,36 @@
         }
         
         .nav-links li {
-            margin-left: 1.5rem;
+            margin-left: 2rem;
         }
         
         .nav-links a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s;
             font-size: 0.95rem;
+            position: relative;
         }
         
         .nav-links a:hover {
             color: var(--primary-color);
+        }
+        
+        /* 导航栏下划线动画 */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
         }
         
         .container {
@@ -81,107 +103,132 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
+
+        /* --- HERO 区域大改版 --- */
         .hero {
-            padding: 4rem 0;
-            background-color: white;
+            padding: 5rem 0;
             margin-bottom: 2rem;
+            position: relative;
+            /* 方案A：使用酷炫的科技蓝渐变背景 */
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            
+            /* 方案B：如果你想插入背景图，请解开下面这两行的注释，并替换 url */
+            /* background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('YOUR_BACKGROUND_IMAGE_URL.jpg'); */
+            /* background-size: cover; background-position: center; */
+            
+            color: white; /* 文字变白 */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         .hero-container {
             display: flex;
-            align-items: flex-start;
-            gap: 40px;
+            align-items: center; /* 垂直居中 */
+            gap: 50px;
         }
         
         .hero-left {
             display: flex;
             flex-direction: column;
             align-items: center;
+            flex-shrink: 0; /* 防止头像被挤压 */
         }
         
         .hero-image {
-            width: 230px;
-            height: 230px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1.5rem;
-            border: 3px solid var(--secondary-color);
+            /* 头像增加白色边框和光晕，突出主体 */
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
         
         .hero-name {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #333;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white; /* 名字变白 */
             margin-top: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
         .hero-right {
             flex: 1;
-            padding-top: 1rem;
         }
         
         .hero-text {
-            font-size: 1.15rem;
-            line-height: 1.7;
-            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9); /* 文字微透，更有质感 */
             margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .hero-text a {
+            color: #63b3ed; /* 链接改为亮蓝色，在深底上更清晰 */
+            font-weight: 500;
         }
         
         .social-links {
             display: flex;
             list-style: none;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
         
         .social-links li {
-            margin-right: 1rem;
+            margin-right: 1.5rem;
         }
         
         .social-links a {
-            color: var(--light-text);
-            font-size: 1.4rem;
-            transition: color 0.3s;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.6rem;
+            transition: all 0.3s;
         }
         
         .social-links a:hover {
-            color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
         
         /* Clean section styling */
         section {
             padding: var(--section-padding);
-            margin-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 0; /* 去掉多余边距 */
             display: block;
             width: 100%;
         }
         
-        section:last-child {
-            border-bottom: none;
-        }
+        /* 偶数区块加一点背景色，增加层次感（可选，目前保持白色简洁） */
+        /* section:nth-child(even) { background-color: #fff; } */
         
         h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1a202c;
             position: relative;
             display: inline-block;
+            font-weight: 700;
         }
         
         h2::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: -5px;
-            width: 40px;
-            height: 3px;
-            background-color: var(--primary-color);
+            bottom: -8px;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color)); /* 渐变下划线 */
+            border-radius: 2px;
         }
         
         h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            color: #2d3748;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+            margin-top: 2rem;
         }
         
         /* Project section */
@@ -191,97 +238,63 @@
         
         .project-card {
             display: flex;
-            margin-bottom: 2.5rem;
-            border-radius: 8px;
+            margin-bottom: 3rem;
+            border-radius: 12px; /* 更圆润 */
             overflow: hidden;
             box-shadow: var(--card-shadow);
             background-color: white;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05); /* 极细边框 */
         }
         
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--hover-shadow);
         }
         
         .project-img-container {
-            flex: 0 0 40%;
+            flex: 0 0 38%;
+            position: relative;
+            overflow: hidden;
         }
         
         .project-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        /* 图片悬停放大效果 */
+        .project-card:hover .project-img {
+            transform: scale(1.05);
         }
         
         .project-content {
             flex: 1;
-            padding: 1.5rem;
+            padding: 2rem;
         }
         
         .project-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            color: var(--text-color);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a202c;
+            line-height: 1.4;
         }
         
         .project-description {
-            margin-bottom: 1rem;
-            color: var(--light-text);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        .project-links {
-            margin-top: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-        
-        .project-link-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .paper-btn {
-            background-color: #e8f0fe;
-            color: var(--primary-color);
-        }
-        
-        .paper-btn:hover {
-            background-color: #d2e3fc;
-        }
-        
-        .video-btn {
-            background-color: #fce8e8;
-            color: #d14836;
-        }
-        
-        .video-btn:hover {
-            background-color: #fad2d2;
-        }
-        
-        .talk-btn {
-            background-color: #fff0e0;
-            color: #f57c00;
-        }
-        
-        .talk-btn:hover {
-            background-color: #ffe0c2;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            font-size: 1rem;
+            line-height: 1.7;
         }
         
         /* Timeline style */
         .timeline {
             position: relative;
             margin: 2rem 0;
+            padding-left: 1rem;
         }
         
         .timeline::before {
@@ -289,33 +302,42 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 2px;
+            width: 3px;
             height: 100%;
-            background-color: var(--border-color);
+            background-color: #e2e8f0;
+            border-radius: 3px;
         }
         
         .timeline-item {
             position: relative;
-            padding-left: 2rem;
-            margin-bottom: 2rem;
+            padding-left: 2.5rem;
+            margin-bottom: 2.5rem;
         }
         
         .timeline-item::before {
             content: '';
             position: absolute;
-            top: 0.5rem;
-            left: -0.35rem;
-            width: 0.7rem;
-            height: 0.7rem;
+            top: 0.4rem;
+            left: -0.4rem; /* 调整圆点位置居中于线 */
+            width: 1rem;
+            height: 1rem;
             border-radius: 50%;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .timeline-item:hover::before {
             background-color: var(--primary-color);
+            transform: scale(1.1);
         }
         
         .timeline-degree {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
-            color: var(--text-color);
+            color: #2d3748;
         }
         
         /* Publications styling */
@@ -324,58 +346,47 @@
         }
         
         .publication-item {
-            padding-bottom: 1.5rem;
+            padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border-bottom: 1px dashed var(--border-color);
+            border-left: 3px solid transparent;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.3s;
+            border: 1px solid #f0f0f0;
         }
         
-        .publication-item:last-child {
-            border-bottom: none;
+        .publication-item:hover {
+            border-left: 3px solid var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transform: translateX(5px);
         }
         
         .publication-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
-        
-        .publication-authors {
-            margin-bottom: 0.5rem;
-            color: var(--light-text);
-            font-size: 0.95rem;
-        }
-        
-        .publication-journal {
-            font-style: italic;
-            margin-bottom: 0.5rem;
-            color: var(--light-text);
-            font-size: 0.95rem;
-        }
-        
-        .publication-links a {
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-right: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: #1a202c;
+            font-size: 1.05rem;
         }
         
         /* Awards styling */
+        .awards-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
         .award-item {
             padding-bottom: 1.5rem;
             margin-bottom: 1.5rem;
-            border-bottom: 1px dashed var(--border-color);
+            border-bottom: 1px solid #edf2f7;
         }
         
         .award-item:last-child {
             border-bottom: none;
-        }
-        
-        .award-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
         
         /* Skills styling */
@@ -388,7 +399,25 @@
         
         .skill-category {
             flex: 1;
-            min-width: 200px;
+            min-width: 280px;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-3px);
+        }
+        
+        .skill-category h3 {
+            margin-top: 0;
+            border-left: none;
+            padding-left: 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid #f0f4f8;
+            padding-bottom: 1rem;
         }
         
         .skill-list {
@@ -396,22 +425,24 @@
         }
         
         .skill-list li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
         
         .skill-list i {
-            color: var(--primary-color);
-            margin-right: 0.5rem;
-            font-size: 1rem;
+            color: var(--accent-color);
+            margin-right: 0.8rem;
+            font-size: 1.1rem;
+            margin-top: 3px;
         }
         
         /* Contact styling */
         .contact-content {
-            display: flex;
-            justify-content: flex-start;
-            margin-top: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
         }
         
         .contact-info ul {
@@ -419,24 +450,32 @@
         }
         
         .contact-info li {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
+            font-size: 1.05rem;
         }
         
         .contact-info i {
-            width: 24px;
+            width: 30px;
+            height: 30px;
+            background-color: #ebf8ff;
             color: var(--primary-color);
-            margin-right: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 0.9rem;
         }
         
         /* Footer styling */
         footer {
-            background-color: var(--secondary-color);
-            padding: 2rem 0;
+            background-color: #2d3748; /* 深色页脚 */
+            padding: 3rem 0;
             text-align: center;
-            color: var(--light-text);
-            margin-top: 2rem;
+            color: #cbd5e0;
+            margin-top: 4rem;
         }
         
         .back-to-top {
@@ -445,16 +484,18 @@
             right: 2rem;
             background-color: var(--primary-color);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             opacity: 0;
             visibility: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 900;
         }
         
         .back-to-top.visible {
@@ -464,6 +505,7 @@
         
         .back-to-top:hover {
             background-color: var(--accent-color);
+            transform: translateY(-3px);
         }
         
         /* Language switcher */
@@ -472,12 +514,18 @@
         }
         
         .language-switcher select {
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #cbd5e0;
             background-color: white;
             font-size: 0.9rem;
             outline: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .language-switcher select:hover {
+            border-color: var(--primary-color);
         }
         
         /* Multi-language content management */
@@ -494,14 +542,23 @@
         @media (max-width: 768px) {
             .header-container { flex-direction: column; padding: 1rem; }
             .nav-links { margin-top: 1rem; flex-wrap: wrap; justify-content: center; }
-            .nav-links li { margin: 0.3rem 0.5rem; }
-            .hero-container { flex-direction: column; align-items: center; }
+            .nav-links li { margin: 0.5rem; margin-left: 0; }
+            
+            .hero-container { flex-direction: column; align-items: center; gap: 20px; }
+            .hero-left { text-align: center; }
             .hero-right { text-align: center; }
+            .hero-image { width: 180px; height: 180px; }
+            .hero-name { font-size: 1.8rem; }
+            
             .social-links { justify-content: center; }
+            
             .project-card { flex-direction: column; }
-            .project-img-container { height: 200px; }
+            .project-img-container { height: 220px; }
+            
             .timeline::before { left: 0.5rem; }
-            .timeline-item { padding-left: 1.5rem; }
+            .timeline-item { padding-left: 1.8rem; }
+            
+            .skill-category { min-width: 100%; }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -548,6 +605,7 @@
     </header>
     
     <main>
+        <!-- Hero Section -->
         <section class="hero">
             <div class="container">
                 <div class="hero-container">
