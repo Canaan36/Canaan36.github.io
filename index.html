@@ -105,6 +105,7 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1.5rem;
+            border: 3px solid var(--secondary-color);
         }
         
         .hero-name {
@@ -277,11 +278,7 @@
             background-color: #ffe0c2;
         }
         
-        .project-link-btn i {
-            margin-right: 0.3rem;
-        }
-        
-        /* Timeline style for education and experience */
+        /* Timeline style */
         .timeline {
             position: relative;
             margin: 2rem 0;
@@ -365,10 +362,6 @@
         }
         
         /* Awards styling */
-        .awards-container {
-            margin-top: 2rem;
-        }
-        
         .award-item {
             padding-bottom: 1.5rem;
             margin-bottom: 1.5rem;
@@ -383,11 +376,6 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: var(--text-color);
-        }
-        
-        .award-description {
-            color: var(--light-text);
-            font-size: 0.95rem;
         }
         
         /* Skills styling */
@@ -426,10 +414,6 @@
             margin-top: 2rem;
         }
         
-        .contact-info {
-            flex: 1;
-        }
-        
         .contact-info ul {
             list-style: none;
         }
@@ -444,25 +428,6 @@
             width: 24px;
             color: var(--primary-color);
             margin-right: 0.5rem;
-        }
-        
-        /* Visitor counter - smaller size */
-        .visitor-counter {
-            margin-top: 3rem;
-            text-align: center;
-        }
-        
-        .visitor-counter h3 {
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-        
-        /* Add style to make the ClusterMaps widget smaller */
-        #clustrmaps-widget-container {
-            transform: scale(0.7);
-            transform-origin: center top;
-            margin: 0 auto;
-            max-width: 300px;
         }
         
         /* Footer styling */
@@ -501,7 +466,7 @@
             background-color: var(--accent-color);
         }
         
-        /* Language switcher styling */
+        /* Language switcher */
         .language-switcher {
             margin-left: 1rem;
         }
@@ -515,95 +480,30 @@
             outline: none;
         }
         
-        [lang="zh"] {
+        /* Multi-language content management */
+        [lang="zh"], [lang="ja"] {
             display: none;
         }
         
-        [lang="ja"] {
-            display: none;
-        }
+        .lang-zh [lang="en"], .lang-zh [lang="ja"] { display: none; }
+        .lang-zh [lang="zh"] { display: block; }
         
-        .lang-zh [lang="en"] {
-            display: none;
-        }
-        
-        .lang-zh [lang="ja"] {
-            display: none;
-        }
-        
-        .lang-zh [lang="zh"] {
-            display: block;
-        }
-        
-        .lang-ja [lang="en"] {
-            display: none;
-        }
-        
-        .lang-ja [lang="zh"] {
-            display: none;
-        }
-        
-        .lang-ja [lang="ja"] {
-            display: block;
-        }
-        
-        /* Responsive styles */
+        .lang-ja [lang="en"], .lang-ja [lang="zh"] { display: none; }
+        .lang-ja [lang="ja"] { display: block; }
+
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                padding: 1rem;
-            }
-            
-            .nav-links {
-                margin-top: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .nav-links li {
-                margin: 0.3rem 0.5rem;
-            }
-            
-            .hero-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .hero-right {
-                text-align: center;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-            
-            .project-card {
-                flex-direction: column;
-            }
-            
-            .project-img-container {
-                flex: 0 0 auto;
-                height: 200px;
-            }
-            
-            .timeline::before {
-                left: 0.5rem;
-            }
-            
-            .timeline-item {
-                padding-left: 1.5rem;
-            }
-            
-            .skills-container {
-                flex-direction: column;
-            }
-            
-            .language-switcher {
-                margin-top: 1rem;
-            }
+            .header-container { flex-direction: column; padding: 1rem; }
+            .nav-links { margin-top: 1rem; flex-wrap: wrap; justify-content: center; }
+            .nav-links li { margin: 0.3rem 0.5rem; }
+            .hero-container { flex-direction: column; align-items: center; }
+            .hero-right { text-align: center; }
+            .social-links { justify-content: center; }
+            .project-card { flex-direction: column; }
+            .project-img-container { height: 200px; }
+            .timeline::before { left: 0.5rem; }
+            .timeline-item { padding-left: 1.5rem; }
         }
     </style>
-    <!-- Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -611,13 +511,31 @@
         <div class="header-container">
             <a href="#" class="logo">Jiayi Hu 胡 佳儀</a>
             <ul class="nav-links">
-                <li><a href="#projects" lang="en">Projects</a><a href="#projects" lang="ja">研究</a><a href="#projects" lang="zh">研究项目</a></li>
-                <li><a href="#education" lang="en">Education</a><a href="#education" lang="ja">教育</a><a href="#education" lang="zh">教育背景</a></li>
-                <li><a href="#job" lang="en">Job Experience</a><a href="#job" lang="ja">職歴</a><a href="#job" lang="zh">工作经历</a></li>
-                <li><a href="#publications" lang="en">Publications</a><a href="#publications" lang="ja">発表</a><a href="#publications" lang="zh">发表论文</a></li>
-                <li><a href="#awards" lang="en">Awards</a><a href="#awards" lang="ja">受賞歴</a><a href="#awards" lang="zh">获奖荣誉</a></li>
-                <li><a href="#skills" lang="en">Skills</a><a href="#skills" lang="ja">スキル</a><a href="#skills" lang="zh">技能</a></li>
-                <li><a href="#contact" lang="en">Contact</a><a href="#contact" lang="ja">連絡先</a><a href="#contact" lang="zh">联系方式</a></li>         
+                <li>
+                    <a href="#projects" lang="en">Projects</a>
+                    <a href="#projects" lang="ja">研究</a>
+                    <a href="#projects" lang="zh">项目</a>
+                </li>
+                <li>
+                    <a href="#education" lang="en">Education</a>
+                    <a href="#education" lang="ja">教育</a>
+                    <a href="#education" lang="zh">教育</a>
+                </li>
+                <li>
+                    <a href="#publications" lang="en">Publications</a>
+                    <a href="#publications" lang="ja">発表</a>
+                    <a href="#publications" lang="zh">发表</a>
+                </li>
+                <li>
+                    <a href="#awards" lang="en">Awards</a>
+                    <a href="#awards" lang="ja">受賞</a>
+                    <a href="#awards" lang="zh">荣誉</a>
+                </li>
+                <li>
+                    <a href="#contact" lang="en">Contact</a>
+                    <a href="#contact" lang="ja">連絡先</a>
+                    <a href="#contact" lang="zh">联系</a>
+                </li>         
             </ul>
             <div class="language-switcher">
                 <select id="langSelect">
@@ -634,37 +552,37 @@
             <div class="container">
                 <div class="hero-container">
                     <div class="hero-left">
+                        <!-- 确保此处文件名正确 -->
                         <img src="my_photo2.jpg" alt="Jiayi Hu" class="hero-image">
                         <div class="hero-name">Jiayi Hu 胡 佳儀</div>
                     </div>
                     <div class="hero-right">
                         <div class="hero-text" lang="en">
-                            <p>I am a PhD candidate at the University of Tokyo (UTokyo), <a href="https://www.lhei.k.u-tokyo.ac.jp/#top" style="text-decoration: underline;">HeiLab</a>, advised by Prof. Shin'ichi Warisawa and Prof. Yuki Ban, focusing on research in binocular rivalry and its applications in user interface design and visual effects.</p>
-                            <p>My research interests include human-computer interaction, visual perception, and Virtual Reality technologies.</p>
+                            <p>I am a PhD candidate at the University of Tokyo (UTokyo), <a href="https://www.lhei.k.u-tokyo.ac.jp/#top" style="text-decoration: underline; color: inherit;">HeiLab</a>, advised by Prof. Shin'ichi Warisawa and Prof. Yuki Ban, focusing on research in multimodal estimation of user states using physiological and behavioral signals and the sense of body ownership (SoBO) in VR.</p>
+                            <p>My research interests include user-state estimation, human-computer interaction, virtual reality technologies, applications of artificial intelligence and adaptive interactive systems.</p>
                         </div>
                         
                         <div class="hero-text" lang="ja">
-                            <p>私は，両眼視野闘争とそのユーザーインターフェース設計および視覚効果への応用研究に焦点を当てています．</p>
-                            <p>研究分野：ヒューマンコンピュータインタラクション，バーチャル・リアリティー，視野闘争</p>
+                            <p>私は東京大学（UTokyo）の<a href="https://www.lhei.k.u-tokyo.ac.jp/#top" style="text-decoration: underline; color: inherit;">HeiLab</a>に所属する博士課程の学生で、割澤伸一教授と伴祐樹准教授の指導の下、生理学的・行動的信号を用いたユーザー状態のマルチモーダル推定およびVRにおける身体所有感（SoBO）に関する研究を行っています。</p>
+                            <p>研究分野：ユーザー状態推定、ヒューマンコンピュータインタラクション、バーチャルリアリティ技術、人工知能の応用、適応型インタラクティブシステム。</p>
                         </div>
                         
                         <div class="hero-text" lang="zh">
-                            <p>我就读于东京大学博士课程，目前专注于双眼竞争及其在用户界面设计和视觉效果中的应用研究。</p>
-                            <p>我的研究兴趣包括人机交互、视觉感知和虚拟现实(VR)。</p>
+                            <p>我是东京大学（UTokyo）<a href="https://www.lhei.k.u-tokyo.ac.jp/#top" style="text-decoration: underline; color: inherit;">HeiLab</a>的博士研究生，师从割泽伸一教授和伴祐树副教授，目前专注于利用生理和行为信号进行用户状态的多模态估计以及VR中的身体所有感（SoBO）的研究。</p>
+                            <p>我的研究兴趣包括用户状态估计、人机交互、虚拟现实技术、人工智能应用以及自适应交互系统。</p>
                         </div>
                         
                         <ul class="social-links">
-                            <li><a href="https://scholar.google.com/citations?user=o3zI7mUAAAAJ&hl=ja"><i class="fab fa-google"></i></a></li>
-                            <li><a href="https://github.com/imcocomi"><i class="fab fa-github"></i></a></li>
-                            <li><a href="https://www.linkedin.com/in/kai-guo-97a639291/"><i class="fab fa-linkedin"></i></a></li>
-                            <li><a href="mailto:guo-kai@g.ecc.u-tokyo.ac.jp"><i class="fas fa-envelope"></i></a></li>
+                            <li><a href="https://scholar.google.co.jp/citations?user=FwJCKUMAAAAJ&hl=ja&oi=ao"><i class="fab fa-google"></i></a></li>
+                            <li><a href="https://github.com/Canaan36"><i class="fab fa-github"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/jiayi-hu-755550231/"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="mailto:4600144648@edu.k.u-tokyo.ac.jp"><i class="fas fa-envelope"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- 研究项目部分 -->
         <section id="projects">
             <div class="container">
                 <h2 lang="en">Projects</h2>
@@ -672,85 +590,53 @@
                 <h2 lang="zh">研究项目</h2>
                 
                 <div class="project-container">
+                    <!-- 项目 1 -->
                     <div class="project-card">
                         <div class="project-img-container">
-                            <img src="chronic_stress.png" alt="Binocular Rivalry UI" class="project-img">
+                            <img src="chronic_stress.png" alt="Chronic Stress Estimation" class="project-img">
                         </div>
                         <div class="project-content">
-                            <div class="project-title" lang="en">Binocular Rivalry User Interface</div>
-                            <div class="project-title" lang="ja">両眼視野闘争ユーザーインターフェース</div>
-                            <div class="project-title" lang="zh">双眼竞争用户界面</div>
+                            <div class="project-title" lang="en">Multimodal Chronic Stress Estimation Based on Behavioral Metrics and Physiological Signals</div>
+                            <div class="project-title" lang="ja">行動指標と生体情報に基づく多モーダル慢性ストレス推定</div>
+                            <div class="project-title" lang="zh">基于行为指标与生理信号的多模态慢性压力评估</div>
+
                             <div class="project-description" lang="en">
-                                My research investigates how binocular rivalry can be utilized to design novel user interfaces that enhance visual flexibility. By presenting different UI elements to each eye, users can selectively focus their attention to either view the graphical interface or the underlying visual scene, even when the GUI is overlaid.
+                                This research estimates chronic stress states using machine learning by integrating behavioral metrics and various physiological signals obtained during cognitive load tasks (2-back) and physical load tasks (CPT). Furthermore, focusing on the contribution of each modality and the interpretability of features, we verify the improvement in accuracy and effectiveness of chronic stress estimation through a highly reproducible evaluation protocol in an experimental environment.
                             </div>
                             <div class="project-description" lang="ja">
-                                両眼に異なるUI要素を提示することで生じる視野闘争現象を活用し、柔軟な視覚体験を実現する新しいユーザーインターフェース設計に関する研究です。この手法により、GUIが背後のシーンに重なっている場合でも、ユーザーは注意を向ける対象を選択し、シーンまたはGUIのいずれかを明瞭に観察できます。
+                                認知的負荷課題（2-back）および身体的負荷課題（CPT）中に得られる行動指標と多種の生体情報を統合し、慢性ストレス状態を機械学習により推定する研究です。さらに、各モダリティの寄与や特徴量の解釈可能性にも着目し、実験環境下での再現性の高い評価プロトコルを通じて、慢性ストレス推定の精度向上と有効性を検証します。
                             </div>
                             <div class="project-description" lang="zh">
-                                我的研究探索了如何利用双眼竞争现象，设计出能够提升视觉灵活性的新型用户界面。通过向左右眼分别呈现不同的界面元素，即使GUI叠加在背景场景上，用户也可以根据自身注意力的转移，自由选择观看完整的视觉场景或界面内容。
-                            </div>
-                            <div class="project-links">
-                                <a href="https://dl.acm.org/doi/10.1145/3652920.3652939" class="project-link-btn paper-btn">
-                                    <i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="ja">論文</span><span lang="zh">论文</span>
-                                </a>
+                                本研究通过整合认知负荷任务（2-back）和身体负荷任务（CPT）中获得的行为指标与多种生理信号，利用机器学习来评估慢性压力状态。此外，着眼于各模态的贡献度和特征的可解释性，通过在实验环境下建立高复现性的评估协议，验证慢性压力评估的精度提升及其有效性。
                             </div>
                         </div>
                     </div>
-                    
+
+                    <!-- 项目 2 -->
                     <div class="project-card">
                         <div class="project-img-container">
-                            <img src="3PP_VR.png" alt="Binocular Rivalry Visual Effects" class="project-img">
+                            <img src="3PP_VR.png" alt="3PP VR SoBO Reallocation" class="project-img">
                         </div>
                         <div class="project-content">
-                            <div class="project-title" lang="en">Binocular Rivalry Visual Effects</div>
-                            <div class="project-title" lang="ja">視野闘争エフェクト</div>
-                            <div class="project-title" lang="zh">双眼竞争视觉效果</div>
+                            <div class="project-title" lang="en">Reallocation of the Sense of Body Ownership and Adaptive Feedback Design in Third-person Perspective VR</div>
+                            <div class="project-title" lang="ja">三人称視点VRにおける身体所有感の再配分と適応的フィードバック設計</div>
+                            <div class="project-title" lang="zh">三人称视角VR中的身体所有感再分配与自适应反馈设计</div>
+
                             <div class="project-description" lang="en">
-                                This research direction focuses on creating visual effects that utilize dichoptic images to induce perceptual phenomena. By manipulating how colors, shapes, materials ,etc are presented to each eye, we can create visual experiences that appear paranormal or impossible, with applications in entertainment, art, and perception studies.
+                                In third-person perspective (3PP) VR, users not only control an avatar but can also simultaneously interact with an overhead viewpoint entity, referred to as the “Omniscient Entity (OE),” which allows the sense of body ownership (SoBO) to shift depending on the situation. In this research, we demonstrate that SoBO is dynamically reallocated between the avatar and the OE during a continuous experience consisting of maze exploration and combat, and we experimentally investigate the factors that influence this transition. Furthermore, we propose a method that switches the synchronization target of full-body vibrotactile feedback according to the current locus of SoBO, and we present design guidelines for haptic feedback that improve immersion and interpretability in 3PP VR.
                             </div>
                             <div class="project-description" lang="ja">
-                                両眼に異なる色彩を提示する手法を用いて、知覚現象を誘発する視覚効果の創出に焦点を当てた研究です。色彩の提示方法を操作することで、超常現象のような視覚体験を生み出し、エンターテイメント、芸術、知覚研究などの分野に応用できます。
+                                三人称視点（3PP）VR では，ユーザがアバターを操作するだけでなく，俯瞰視点の「大いなる存在（Omniscient Entity, OE）」も同時に扱えるため，身体所有感（SoBO）がどちらに帰属するかが状況によって変化します．本研究では，迷宮探索と戦闘を含む連続体験の中で，SoBO がアバターと OE の間で動的に再配分されることを明らかにし，その変化に影響する要因を実験的に検証しました．さらに，SoBO の主体に応じて全身振動フィードバックの同期対象を切り替える手法を提案し，3PP VR における没入感と理解しやすさを高める触覚提示設計の指針を示します．
                             </div>
                             <div class="project-description" lang="zh">
-                                这个研究方向专注于创建利用双眼色差诱导感知现象的视觉效果。通过操纵向每只眼睛呈现颜色的方式，我们可以创造看起来超自然或不可能的视觉体验，这些体验在娱乐、艺术和感知研究方面有应用。
-                            </div>
-                            <div class="project-links">
-                                <a href="https://doi.org/10.1109/TVCG.2025.3549172" class="project-link-btn paper-btn">
-                                    <i class="fas fa-file-pdf"></i> <span lang="en">Paper1</span><span lang="ja">論文1</span><span lang="zh">论文1</span>
-                                </a>
-                                <a href="https://dl.acm.org/doi/10.1145/3681755.3688949" class="project-link-btn paper-btn">
-                                    <i class="fas fa-file-pdf"></i> <span lang="en">Paper2</span><span lang="ja">論文2</span><span lang="zh">论文2</span>
-                                </a>
-                                <a href="https://www.youtube.com/watch?v=FpO6o1_0HDQ" class="project-link-btn video-btn">
-                                    <i class="fas fa-video"></i> <span lang="en">Video</span><span lang="ja">動画</span><span lang="zh">视频</span>
-                                </a>
+                                在三人称视角（3PP）VR中，用户不仅操控虚拟化身（avatar），还可以同时操作俯瞰视角的“大能存在（Omniscient Entity, OE）”，因此身体所有感（SoBO）归属到哪一方会随情境发生变化。本研究在包含迷宫探索与战斗的连续体验中，揭示了SoBO会在avatar与OE之间动态再分配，并通过实验验证影响这种变化的关键因素。此外，我们提出一种根据SoBO主体切换全身振动反馈同步对象的方法，并给出触觉提示设计的指引，以提升3PP VR中的沉浸感与可理解性。
                             </div>
                         </div>
-                    </div>
-                    <div class="project-card">
-                      <div class="project-img-container">
-                        <img src="SAR.png" alt="Automotive mmWave SAR: Motion Compensation & 3D Imaging" class="project-img">
-                      </div>
-                      <div class="project-content">
-                        <div class="project-title" lang="en">Motion Compensation Algorithm for SAR Imaging</div>
-                        <div class="project-title" lang="ja">車載ミリ波レーダによるSARイメージングの動揺補正アルゴリズム</div>
-                        <div class="project-title" lang="zh">基于车载毫米波雷达的SAR成像动摇补偿算法</div>
-                        <div class="project-description" lang="en">
-                            We develop a GPS/INS-aided motion compensation algorithm for Synthetic Aperture Radar (SAR) imaging on a moving vehicle, combining Range–Doppler processing, RCMC, azimuth compression, and DOA-based beamforming to reconstruct 3D scenes. Field tests on campus with a 76–77 GHz FMCW radar achieved ~4 cm range resolution at ~15 km/h.
-                        </div>
-                        <div class="project-description" lang="ja">
-                            本研究は，走行中プラットフォームの揺れをGPS/INSで補正し，Range–Doppler法・RCMC・アジマス圧縮・DOA推定（ビームフォーマ）を統合して三次元SARイメージングを実現しました。76–77 GHz FMCWレーダを用いた学内走行実験で，約4 cmの距離分解能と約15 km/hでの有効性を確認しました。
-                        </div>
-                        <div class="project-description" lang="zh">
-                            我们在车载平台上提出一套基于 GPS/INS 的 SAR 动摇补偿流程，结合 Range–Doppler、RCMC、方位向压缩与 DOA 波束形成，实现三维重建。在 76–77 GHz FMCW 雷达的道路实验中，在约 15 km/h 速度下获得约 4 cm 的距离分辨率。
-                        </div>
-                      </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 教育背景部分 -->
         <section id="education">
             <div class="container">
                 <h2 lang="en">Education</h2>
@@ -758,162 +644,118 @@
                 <h2 lang="zh">教育背景</h2>
 
                 <div class="timeline">
+                    <!-- 硕士阶段 -->
                     <div class="timeline-item">
-                        <div class="timeline-degree" lang="en">2025.4-Present: PhD Candidate in Environmental Engineering, The University of Tokyo</div>
-                        <div class="timeline-degree" lang="ja">2025.4-現在: 博士後期課程、環境工学、東京大学</div>
-                        <div class="timeline-degree" lang="zh">2025.4-至今: 博士在读，环境工程，东京大学</div>
-                        <p lang="en">Research Topic: Binocular rivalry and its applications in user interface design and visual effects.</p>
-                        <p lang="ja">研究テーマ：両眼視野闘争とそのユーザーインターフェース設計および視覚効果への応用。</p>
-                        <p lang="zh">研究方向：双眼竞争及其在用户界面设计和视觉效果中的应用。</p>
+                        <div class="timeline-degree" lang="en">2023.10 - 2026.3 (Expected): M.Sc. in Environmental Engineering, The University of Tokyo</div>
+                        <div class="timeline-degree" lang="ja">2023.10 - 2026.3 (見込): 修士（環境工学）、東京大学</div>
+                        <div class="timeline-degree" lang="zh">2023.10 - 2026.3 (预计): 硕士（环境工程）、东京大学</div>
+                        
+                        <p lang="en">Thesis: Chronic Stress Estimation Using Behavioral Metrics and Physiological Signals Under Cognitive and Physical Loads</p>
+                        <p lang="ja">論文タイトル：認知的・身体的負荷時における行動指標及び生体情報を用いた慢性ストレス推定</p>
+                        <p lang="zh">硕士论文：基于认知与身体负荷下的行为指标及生理信号的慢性压力评估</p>
                     </div>
-                    
+
+                    <!-- 研究生阶段 -->
                     <div class="timeline-item">
-                        <div class="timeline-degree" lang="en">2023.4-2025.3: M.Sc. in Environmental Engineering, The University of Tokyo</div>
-                        <div class="timeline-degree" lang="ja">2023.4-2025.3: 修士、環境工学、東京大学</div>
-                        <div class="timeline-degree" lang="zh">2023.4-2025.3: 硕士，环境工程，东京大学</div>
-                        <p lang="en">Thesis title: GUI Presentation Method based on Binocular Rivalry for Non-overlay Information Recognition in Visual Scenes.</p>
-                        <p lang="ja">論文タイトル：視野闘争を利用した選択的注意によるUI 画面・背景情報の認識切り替え手法。</p>
-                        <p lang="zh">论文题目：基于双眼竞争的非重叠信息识别GUI的呈现方法。</p>
+                        <div class="timeline-degree" lang="en">2022.10 - 2023.9: Research Student, Environmental Engineering, The University of Tokyo</div>
+                        <div class="timeline-degree" lang="ja">2022.10 - 2023.9: 研究生（環境工学）、東京大学</div>
+                        <div class="timeline-degree" lang="zh">2022.10 - 2023.9: 研究生（环境工程）、东京大学</div>
+                        <p lang="en">Research Lab: HeiLab</p>
+                        <p lang="ja">研究室：HeiLab</p>
+                        <p lang="zh">所属研究室：HeiLab</p>
                     </div>
-                    
+
+                    <!-- 本科阶段 -->
                     <div class="timeline-item">
-                        <div class="timeline-degree" lang="en">2019.4-2023.3: B.Sc. in Computer Science, Niigata University</div>
-                        <div class="timeline-degree" lang="ja">2019.4-2023.3: 学士、情報工学、新潟大学</div>
-                        <div class="timeline-degree" lang="zh">2019.4-2023.3: 学士，计算机科学，新潟大学</div>
-                        <p lang="en">Thesis title: Basic Study on Motion Compensation in carbon Millimeter Wave SAR by Using Range Doppler Method.</p>
-                        <p lang="ja">論文タイトル：Range Doppler法を用いた車載ミリ波SARにおける動揺補正に関する基礎検討。</p>
-                        <p lang="zh">论文题目：使用Range Doppler算法对车载毫米波雷达SAR成像中的运动补偿。</p>
+                        <div class="timeline-degree" lang="en">2018.9 - 2022.7: B.Eng. in Computer Science and Technology, Zhejiang University of Technology</div>
+                        <div class="timeline-degree" lang="ja">2018.9 - 2022.7: 学士（計算機科学と技術）、浙江工業大学</div>
+                        <div class="timeline-degree" lang="zh">2018.9 - 2022.7: 学士（计算机科学与技术）、浙江工业大学</div>
+                        
+                        <p lang="en">Thesis: Behavior decision of heterogeneous agent based on Goal-Plan Tree</p>
+                        <p lang="ja">卒業論文：Goal-Plan Treeに基づく異種エージェントの行動決定</p>
+                        <p lang="zh">本科论文：基于目标-计划树的异构智能体行为决策</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 工作经历部分 -->
-        <section id="job">
-            <div class="container">
-                <h2 lang="en">Job Experience</h2>
-                <h2 lang="ja">職歴</h2>
-                <h2 lang="zh">工作经历</h2>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-degree" lang="en">2026-2028: JSPS Research Fellowships for Young Scientists (DC2) — provisionally selected</div>
-                        <div class="timeline-degree" lang="ja">2026-2028: 日本学術振興会 特別研究員(DC2) — 採用内定</div>
-                        <div class="timeline-degree" lang="zh">2026-2028: 日本学术振兴会 特別研究員(DC2) — 采用内定</div>
-                        <p lang="en">Japan Society for the Promotion of Science</p>
-                        <p lang="ja">日本学術振興会</p>
-                        <p lang="zh">日本学术振兴会</p>
-                    </div>
-                </div>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-degree" lang="en">2025-2028: SPRING GX, Support for Pioneering Research Initiated by the Next Generation</div>
-                        <div class="timeline-degree" lang="ja">2025-2028: 次世代研究者挑戦的研究プログラム 「グリーントランスフォーメーション(GX)を先導する高度人材育成」プロジェクト</div>
-                        <div class="timeline-degree" lang="zh">2025-2028: SPRING GX, 次世代研究者挑战项目</div>
-                        <p lang="en">Japan Science and Technology Agency</p>
-                        <p lang="ja">国立研究開発法人科学技術振興機構</p>
-                        <p lang="zh">日本国立科学技术振兴机构</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 发表论文部分 -->
+        <!-- Publications Section -->
         <section id="publications">
             <div class="container">
                 <h2 lang="en">Publications</h2>
-                <h2 lang="ja">発表</h2>
+                <h2 lang="ja">発表論文</h2>
                 <h2 lang="zh">发表论文</h2>
 
-                <h3 lang="en">Journal</h3>
-                <h3 lang="ja">学術論文</h3>
-                <h3 lang="zh">期刊</h3>
-                
-                <div class="publications-container">
-                    <div class="publication-item">
-                        <div class="publication-title">Visual presentation method for paranormal phenomena through binocular rivalry induced by dichoptic color differences</div>
-                        <div class="publication-authors"><strong>K. Guo</strong>, J. Hosoi, Y. Shimomura, Y. Ban, and S. Warisawa</div>
-                        <div class="publication-journal">IEEE Transactions on Visualization and Computer Graphics (TVCG), 2025.</div>
-                        <div class="publication-links">
-                            <a href="https://doi.org/10.1109/TVCG.2025.3549172"><i class="fas fa-quote-right"></i> DOI: 10.1109/TVCG.2025.3549172</a>
-                        </div>
-                    </div>
-                </div>
-
                 <h3 lang="en">Conference Papers</h3>
-                <h3 lang="ja">学会発表</h3>
+                <h3 lang="ja">国際・国内会議</h3>
                 <h3 lang="zh">会议论文</h3>
                 
                 <div class="publications-container">
+                    <!-- Paper 1 -->
                     <div class="publication-item">
-                        <div class="publication-title", lang="en">How Rendering Style Moderates the Impact of Binocular Highlight Disparity on Gloss Perception in VR</div>
-                        <div class="publication-title", lang="ja">VR 環境におけるレンダリングスタイルが両眼ハイライト視差と光沢知覚に及ぼす影響</div>
-                        <div class="publication-authors"><u><strong>K. Guo</strong></u>, J. Hosoi, Y. Ban, Y. Shimomura, and S. Warisawa</div>
-                        <div class="publication-journal">第26回計測自動制御学会システムインテグレーション部門講演会(SI 2025). 2025.</div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-title", lang="en">A Full-body Vibrotactile Feedback Method Guided by Body Ownership in Third-person Perspective VR</div>
-                        <div class="publication-title", lang="ja">三人称視点 VR における身体所有感に基づく全身振動提示手法</div>
-                        <div class="publication-authors">J. Hu, <u><strong>K. Guo</strong></u>, Z.Kang, Y. Ban and S. Warisawa</div>
-                        <div class="publication-journal">第26回計測自動制御学会システムインテグレーション部門講演会(SI 2025). 2025.</div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-title">三人称視点VRにおける身体所有感の切り替えとその影響要因の検討</div>
-                        <div class="publication-authors">胡 佳儀，<u><strong>郭 凱</strong></u>，康 中睿，伴 祐樹，割澤 伸一</div>
-                        <div class="publication-journal">第30回日本バーチャルリアリティ学会大会. 3F2-02. 2025.</div>
-                    </div>
-                
-                    <div class="publication-item">
-                        <div class="publication-title">低呼吸状態における視聴覚情報の動的提示による瞑想状態への誘導</div>
-                        <div class="publication-authors">永田 簾，<u><strong>郭 凱</strong></u>，伴 祐樹，割澤 伸一</div>
-                        <div class="publication-journal">第30回日本バーチャルリアリティ学会大会. 3G-17. 2025.</div>
-                    </div>
-            
-                    <div class="publication-item">
-                        <div class="publication-title">Demonstration of visual presentation method for paranormal phenomena through binocular rivalry induced by dichoptic color differences</div>
-                        <div class="publication-authors"><u><strong>K. Guo</strong></u>, J. Hosoi, Y. Shimomura, Y. Ban, and S. Warisawa</div>
-                        <div class="publication-journal">in 2025 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), 2025.</div>
-                        <div class="publication-links">
-                            <a href="https://doi.org/10.1109/VRW66409.2025.00456"><i class="fas fa-quote-right"></i> DOI: 10.1109/VRW66409.2025.00456</a>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <div class="publication-title">Paranormal phenomenon visual experience through binocular rivalry in virtual reality</div>
-                        <div class="publication-authors"><u><strong>K. Guo</strong></u>, J. Hosoi, Y. Ban, Y. Shimomura, and S. Warisawa</div>
-                        <div class="publication-journal">in SIGGRAPH Asia 2024 Emerging Technologies, ser. SA '24, Association for Computing Machinery, 2024.</div>
-                        <div class="publication-links">
-                            <a href="https://doi.org/10.1145/3681755.3688949"><i class="fas fa-quote-right"></i> DOI: 10.1145/3681755.3688949</a>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <div class="publication-title">GUI presentation method based on binocular rivalry for non-overlay information recognition in visual scenes</div>
-                        <div class="publication-authors"><u><strong>K. Guo</strong></u>, Y. Shimomura, J. Hosoi, Y. Ban, and S. Warisawa</div>
-                        <div class="publication-journal">in Proceedings of the Augmented Humans International Conference 2024, ser. AHs '24, Melbourne, VIC, Australia: Association for Computing Machinery, 2024, pp. 193–204.</div>
-                        <div class="publication-links">
-                            <a href="https://doi.org/10.1145/3652920.3652939"><i class="fas fa-quote-right"></i> DOI: 10.1145/3652920.3652939</a>
-                        </div>
+                        <div class="publication-title">Reallocation of Body Ownership Between Avatar and Omniscient Entity in Third-Person Perspective VR</div>
+                        <div class="publication-authors"><u><strong>Jiayi Hu</strong></u>, Kai Guo, Zhongrui Kang, Yuki Ban, Shin'ichi Warisawa.</div>
+                        <div class="publication-journal">the 2026 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR). Korea. Feb 2026.</div>
                     </div>
 
+                    <!-- Paper 2 -->
                     <div class="publication-item">
-                        <div class="publication-title">ビジュアルシーンと重畳せずに認識可能な視野闘争を用いた視覚的なUI提示手法の検討</div>
-                        <div class="publication-authors"><u><strong>郭凱</strong></u>, 下村祐樹, 細井十楽, 伴祐樹, 割澤伸一</div>
-                        <div class="publication-journal">第28回一般社団法人情報処理学会シンポジウム Interaction 2024．2P89．2024年3月．</div>
+                        <div class="publication-title">Multimodal Estimation of Chronic Stress Using Physiological Signals and Cognitive Task Performance</div>
+                        <div class="publication-authors"><u><strong>Jiayi Hu</strong></u>, Yuki Ban, Shin'ichi Warisawa.</div>
+                        <div class="publication-journal">the 2026 International Conference on Bio-inspired Systems and Signal Processing (BIOSIGNALS). Spain. Feb 2026</div>
                     </div>
-                    
+
+                    <!-- Paper 3 -->
                     <div class="publication-item">
-                        <div class="publication-title">視野闘争を用いた超常現象の視覚提示についての検討</div>
-                        <div class="publication-authors"><u><strong>郭凱</strong></u>, 細井十楽, 伴祐樹, 下村祐樹, 割澤伸一</div>
-                        <div class="publication-journal">第29回日本バーチャルリアリティ学会大会．2E1-02. 2024年</div>
+                        <div class="publication-title">A Full-body Vibrotactile Feedback Method Guided by Body Ownership in Third-person Perspective VR</div>
+                        <div class="publication-authors"><u><strong>Jiayi Hu</strong></u>, Kai Guo, Zhongrui Kang, Yuki Ban, Shin'ichi Warisawa</div>
+                        <div class="publication-journal">第 26 回計測自動制御学会システムインテグレーション部門講演会. 1E5-11. 広島. 2025 年12 月</div>
+                    </div>
+
+                    <!-- Paper 4 -->
+                    <div class="publication-item">
+                        <div class="publication-title">三人称視点 VR における身体所有感の切り替えとその影響要因の検討</div>
+                        <div class="publication-authors"><u><strong>胡 佳儀</strong></u>，郭 凱，康 中睿，伴 祐樹，割澤 伸一</div>
+                        <div class="publication-journal">第 30 回日本バーチャルリアリティ学会大会. 3F2-02. 大阪. 2025 年 9 月.</div>
+                    </div>
+
+                    <!-- Paper 5 -->
+                    <div class="publication-item">
+                        <div class="publication-title">慢性ストレス群の寒冷昇圧試験による痛み耐性および生理指標の解析</div>
+                        <div class="publication-authors"><u><strong>胡 佳儀</strong></u>, 伴 祐樹, 割澤 伸一</div>
+                        <div class="publication-journal">第 41 回日本ストレス学会学術総会. 10012. 東京. 2025 年9 月.</div>
+                    </div>
+
+                    <!-- Paper 6 -->
+                    <div class="publication-item">
+                        <div class="publication-title">Enhance Flight Experience Through Wind-based Cross-modal Effect</div>
+                        <div class="publication-authors">Yuan Li, <u><strong>Jiayi Hu</strong></u>, Du Jin, Juro Hosoi, Rui Zhang, Yuki Ban, Shin'ichi Warisawa, Kazunori Takashio</div>
+                        <div class="publication-journal">2024 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct); 624-625; Bellevue, WA, USA; October 2024.</div>
+                    </div>
+
+                    <!-- Paper 7 -->
+                    <div class="publication-item">
+                        <div class="publication-title">風のクロスモーダル現象による浮遊感の創出</div>
+                        <div class="publication-authors">李淵，<u><strong>胡佳儀</strong></u>，金杜，細井十楽，伴祐樹，割澤伸一，高汐一紀</div>
+                        <div class="publication-journal">第 29 回日本バーチャルリアリティ学会大会; 愛知県名古屋市; 2024 年 9 月</div>
+                    </div>
+                </div>
+
+                <h3 lang="en">Patents</h3>
+                <h3 lang="ja">特許</h3>
+                <h3 lang="zh">专利</h3>
+
+                <div class="publications-container">
+                    <div class="publication-item">
+                        <div class="publication-title">Method for structurally representing intelligent agent target implementation process</div>
+                        <div class="publication-authors">Yuan Yao, Di Wu, Jianghan Xia, Xiaoxuan Wang, <u><strong>Jiayi Hu</strong></u>.</div>
+                        <div class="publication-journal">CN 113255914 A. 13 August 2021.</div>
                     </div>
                 </div>
             </div>
         </section>
-                        
-                        
-        <!-- 获奖荣誉部分 -->
+
+        <!-- Awards Section -->
         <section id="awards">
             <div class="container">
                 <h2 lang="en">Awards & Honors</h2>
@@ -922,60 +764,47 @@
                 
                 <div class="awards-container">
                     <div class="award-item">
-                        <div class="award-title" lang="en">Outstanding Student Award, SICE (Society of Instrument and Control Engineers), 2025</div>
-                        <div class="award-title" lang="ja">優秀学生賞, 計測自動制御学会 (SICE), 2025</div>
-                        <div class="award-title" lang="zh">优秀学生奖, SICE（计测自动控制学会）, 2025</div>
+                        <div class="award-title">日本ストレス学会奨励賞（高田賞）</div>
+                        <div class="award-description"><u><strong>胡 佳儀</strong></u>. 第 41 回日本ストレス学会学術総会. 2025 年 9 月13 日</div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-title">優秀賞（対象 27 件中 4 件）</div>
+                        <div class="award-description">
+                             <u><strong>Jiayi Hu</strong></u>, Du Jin and Rui Zhang. “生成 AI を利用した高齢者におけるスマホの活用支援”<br>
+                             2024 年度東京大学グローバル・インターンシップ・プログラム（UGIP）ソフトバンク（株）企画 データハッカソン「生成 AI を活用した未来のライフスタイルを考えよう」
+                        </div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-title">Jianxing Honors Graduate Award (Awarded to the top 1% of graduates)</div>
+                        <div class="award-description"><u><strong>Jiayi Hu</strong></u>. Zhejiang University of Technology. June 2022.</div>
                     </div>
                     
                     <div class="award-item">
-                        <div class="award-title" lang="en">Best Demo Award in SIGGRAPH Asia 2024 Emerging Technologies (SA '24), 2024</div>
-                        <div class="award-title" lang="ja">SIGGRAPH Asia 2024 Emerging Technologies (SA '24) Best Demo Award, 2024</div>
-                        <div class="award-title" lang="zh">SIGGRAPH Asia 2024 Emerging Technologies（SA '24）Best Demo Award, 2024</div>
+                        <div class="award-title">Scholarship of literature and sports (Awarded to 1% students)</div>
+                        <div class="award-description">2020/2021 academic year</div>
                     </div>
                     
                     <div class="award-item">
-                        <div class="award-title" lang="en">News Coverage, THE DAILY INDUSTRIAL NEWS (日刊工業新聞), December 6, 2024</div>
-                        <div class="award-title" lang="ja">掲載, 日刊工業新聞, 2024年12月6日</div>
-                        <div class="award-title" lang="zh">媒体报道, 日刊工业新闻, 2024年12月6日</div>
-                        <div class="award-description" lang="en">"Binocular Rivalry by Presenting Different Colors to the Left and Right Eyes: The University of Tokyo's HMD-based Technology"</div>
-                        <div class="award-description" lang="ja">"左右の目に違う色提示で視野闘争　東大がHMD使い技術"</div>
-                        <div class="award-description" lang="zh">"向左右眼呈现不同颜色的双眼竞争：东京大学的HMD基础技术"</div>
+                        <div class="award-title">Third-class scholarship of study (Awarded to top 20% students)</div>
+                        <div class="award-description">2020/2021 academic year</div>
                     </div>
-                    
+
                     <div class="award-item">
-                        <div class="award-title" lang="en">University Prize for Global Talent Special Award, Niigata University, 2023</div>
-                        <div class="award-title" lang="ja">グローバル人材特別賞, 新潟大学, 2023</div>
-                        <div class="award-title" lang="zh">全球人才特别奖, 新潟大学, 2023</div>
+                        <div class="award-title">Second-class scholarship for outstanding student (Awarded to top 10% students)</div>
+                        <div class="award-description">2020/2021 academic year</div>
                     </div>
-                    
+
                     <div class="award-item">
-                        <div class="award-title" lang="en">Monbukagakusho Honors Scholarship, JASSO, 2022-2023</div>
-                        <div class="award-title" lang="ja">旧文部科学省外国人留学生学習奨励費, 日本学生支援機構, 2022-2023</div>
-                        <div class="award-title" lang="zh">旧文部科学省优秀留学生奖学金, 日本学生支援机构, 2022-2023</div>
-                    </div>
-                    
-                    <div class="award-item">
-                        <div class="award-title" lang="en">Educational Development Fellowship, UNION TOOL CO., 2021-2022</div>
-                        <div class="award-title" lang="ja">奨学生, ユニオンツール育英奨学会, 2021-2022</div>
-                        <div class="award-title" lang="zh">财团奖学金, UNION TOOL CO., 2021-2022</div>
-                    </div>
-                    
-                    <div class="award-item">
-                        <div class="award-title" lang="en">Educational Development Fellowship, UNION TOOL CO., 2020-2021</div>
-                        <div class="award-title" lang="ja">奨学生, ユニオンツール育英奨学会, 2020-2021</div>
-                        <div class="award-title" lang="zh">财团奖学金, UNION TOOL CO., 2020-2021</div>
-                    </div>
-                    
-                    <div class="award-item">
-                        <div class="award-title" lang="en">Monbukagakusho Honors Scholarship, JASSO, 2019-2020</div>
-                        <div class="award-title" lang="ja">旧文部科学省外国人留学生学習奨励費, 日本学生支援機構, 2019-2020</div>
-                        <div class="award-title" lang="zh">旧文部科学省优秀留学生奖学金, 日本学生支援机构, 2019-2020</div>
+                        <div class="award-title">Third-class scholarship of study (Awarded to top 20% students)</div>
+                        <div class="award-description">2019/2020 academic year</div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- 技能部分 -->
+
+        <!-- Skills Section -->
         <section id="skills">
             <div class="container">
                 <h2 lang="en">Skills</h2>
@@ -988,37 +817,41 @@
                         <h3 lang="ja">言語</h3>
                         <h3 lang="zh">语言</h3>
                         <ul class="skill-list">
-                            <li><i class="fas fa-language"></i> <span lang="en">Chinese (Native)</span><span lang="ja">中国語 (ネイティブ)</span><span lang="zh">中文（母语）</span></li>
-                            <li><i class="fas fa-language"></i> <span lang="en">Japanese (Fluent)</span><span lang="ja">日本語 (流暢)</span><span lang="zh">日语（流利）</span></li>
-                            <li><i class="fas fa-language"></i> <span lang="en">English (Fluent)</span><span lang="ja">英語 (流暢)</span><span lang="zh">英语（流利）</span></li>
+                            <li><i class="fas fa-language"></i> <span lang="en">Chinese (Native)</span><span lang="ja">中国語 (ネイティブ)</span><span lang="zh">中文 (母语)</span></li>
+                            <li><i class="fas fa-language"></i> <span lang="en">Japanese (Business)</span><span lang="ja">日本語 (ビジネスレベル)</span><span lang="zh">日语 (商务水平)</span></li>
+                            <li><i class="fas fa-language"></i> <span lang="en">English (Business)</span><span lang="ja">英語 (ビジネスレベル)</span><span lang="zh">英语 (商务水平)</span></li>
                         </ul>
                     </div>
                     
                     <div class="skill-category">
-                        <h3 lang="en">Programming</h3>
-                        <h3 lang="ja">プログラミング</h3>
-                        <h3 lang="zh">编程</h3>
+                        <h3 lang="en">Programming & AI</h3>
+                        <h3 lang="ja">プログラミング & AI</h3>
+                        <h3 lang="zh">编程与人工智能</h3>
                         <ul class="skill-list">
-                            <li><i class="fas fa-code"></i> C#, C++, C, Matlab, Python</li>
+                            <li>
+                                <i class="fas fa-code"></i> 
+                                Python, C#, C++, C, Java, Matlab, SQL
+                            </li>
+                            <li>
+                                <i class="fas fa-brain"></i> 
+                                PyTorch, TensorFlow, scikit-learn
+                            </li>
                         </ul>
                     </div>
                     
                     <div class="skill-category">
-                        <h3 lang="en">Tools</h3>
-                        <h3 lang="ja">ツール</h3>
-                        <h3 lang="zh">工具</h3>
+                        <h3 lang="en">Signal Processing</h3>
+                        <h3 lang="ja">信号処理</h3>
+                        <h3 lang="zh">信号处理</h3>
                         <ul class="skill-list">
-                            <li><i class="fas fa-tools"></i> Unity</li>
-                            <li><i class="fas fa-tools"></i> OpenCV</li>
-                            <li><i class="fas fa-tools"></i> Blender</li>
-                            <li><i class="fas fa-tools"></i> Adobe Illustrator, Premiere Pro</li>
+                            <li><i class="fas fa-wave-square"></i> <span lang="en">Time-series Analysis</span><span lang="ja">時系列分析</span><span lang="zh">时间序列分析</span></li>
+                            <li><i class="fas fa-heartbeat"></i> <span lang="en">Real-time biosignal data acquisition (e.g., Biosignalsplux)</span><span lang="ja">リアルタイム生体信号計測 (例: Biosignalsplux)</span><span lang="zh">实时生物信号采集 (如: Biosignalsplux)</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- 联系方式部分 -->
+
         <section id="contact">
             <div class="container">
                 <h2 lang="en">Contact</h2>
@@ -1027,62 +860,40 @@
                 <div class="contact-content">
                     <div class="contact-info">
                         <ul>
-                            <li><i class="fas fa-envelope"></i> a1037736871@icloud.com / guo-kai@g.ecc.u-tokyo.ac.jp</li>
-                            <li><i class="fas fa-map-marker-alt"></i> <span lang="en">University of Tokyo, Tokyo, Japan</span><span lang="ja">東京大学, 東京, 日本</span><span lang="zh">东京大学，东京，日本</span></li>
-                            <li><i class="fas fa-university"></i> <span lang="en">Graduate School of Frontier Sciences</span><span lang="ja">新領域創成科学研究科</span><span lang="zh">新领域创成科学研究科</span></li>
+                            <li><i class="fas fa-envelope"></i> 4600144648@edu.k.u-tokyo.ac.jp</li>
+                            <li><i class="fas fa-map-marker-alt"></i> <span lang="en">University of Tokyo, Japan</span><span lang="zh">东京大学，日本</span></li>
                         </ul>
                     </div>
                 </div>
-                
-                <!-- 缩小后的访问计数器 -->
-                <!-- <div class="visitor-counter">
-                    <div id="clustrmaps-widget-container">
-                        <script type="text/javascript" id="clstr_globe" src="https://clustrmaps.com/globe.js?d=nxzJqzBgZvrn7qp5SZu7p0dWcK1Z-_-w6IIH6TcMM8w"></script>
-                    </div>
-                </div> -->
             </div>
         </section>
     </main>
     
-    <!-- 页脚 -->
     <footer>
         <div class="container">
-            <p lang="en">&copy; 2025 Kai Guo. All rights reserved.</p>
-            <p lang="ja">&copy; 2025 郭凱. 全著作権所有.</p>
-            <p lang="zh">&copy; 2025 郭凯. 版权所有.</p>
-            <p lang="en">Last updated: April 2025</p>
-            <p lang="ja">最終更新日: 2025年4月</p>
-            <p lang="zh">最后更新: 2025年4月</p>
+            <p>&copy; 2025 Jiayi Hu 胡 佳儀. All rights reserved.</p>
+            <p>Last updated: April 2025</p>
         </div>
     </footer>
     
-    <!-- 回到顶部按钮 -->
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </a>
     
-    <!-- JavaScript脚本 -->
     <script>
-        // 语言切换器
+        // Language switcher logic
         const langSelect = document.getElementById('langSelect');
         const body = document.body;
         
         langSelect.addEventListener('change', function() {
-            if (this.value === 'zh') {
-                body.classList.add('lang-zh');
-                body.classList.remove('lang-ja');
-            } else if (this.value === 'ja') {
-                body.classList.add('lang-ja');
-                body.classList.remove('lang-zh');
-            } else {
-                body.classList.remove('lang-zh');
-                body.classList.remove('lang-ja');
+            body.classList.remove('lang-zh', 'lang-ja');
+            if (this.value !== 'en') {
+                body.classList.add('lang-' + this.value);
             }
         });
 
-        // 回到顶部按钮
+        // Back to top
         const backToTop = document.getElementById('backToTop');
-        
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 backToTop.classList.add('visible');
@@ -1095,26 +906,17 @@
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        
-        // 平滑滚动（排除 href="#" 与回到顶部按钮）
-        document.querySelectorAll('a[href^="#"]:not([href="#"]):not(#backToTop)').forEach(anchor => {
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const targetSelector = this.getAttribute('href');
-                const targetEl = document.querySelector(targetSelector);
-                if (!targetEl) return;
-                e.preventDefault();
-                targetEl.scrollIntoView({ behavior: 'smooth' });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
-
-        // LOGO（href="#"）点击时平滑回到顶部
-        const logoLink = document.querySelector('a.logo[href="#"]');
-        if (logoLink) {
-            logoLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
     </script>
 </body>
 </html>
